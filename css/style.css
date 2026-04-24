@@ -171,13 +171,13 @@ body {
 .nav__cta {
   padding: 9px 24px;
   background: var(--purple);
-  color: var(--white) !important;
+  color: var(--white);
   border-radius: 50px;
-  font-size: 13px !important;
-  transition: background 0.2s, transform 0.15s !important;
+  font-size: 13px;
+  transition: background 0.2s, transform 0.15s;
 }
 
-.nav__cta:hover { background: #6A4F92 !important; transform: translateY(-1px); }
+.nav__cta:hover { background: #6A4F92; transform: translateY(-1px); }
 
 /* Hamburger — hidden on desktop */
 .nav__hamburger {
