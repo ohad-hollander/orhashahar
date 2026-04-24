@@ -31,11 +31,12 @@ if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const firstName = contactForm.firstName.value.trim();
+    const lastName = contactForm.lastName.value.trim();
     const email = contactForm.email.value.trim();
     const message = contactForm.message.value.trim();
 
-    if (!firstName || !email || !message) {
-      [contactForm.firstName, contactForm.email, contactForm.message].forEach(field => {
+    if (!firstName || !lastName || !email || !message) {
+      [contactForm.firstName, contactForm.lastName, contactForm.email, contactForm.message].forEach(field => {
         if (!field.value.trim()) {
           field.style.borderColor = 'var(--coral)';
           field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });

@@ -1,0 +1,12 @@
+[[redirects]]
+  from = "/retreat-shacharit"
+  to = "/retreat-shacharit.html"
+  status = 200
+
+[[redirects]]
+  from = "/retreat-ani-ve-at"
+  to = "/retreat-ani-ve-at.html"
+  status = 200
+
+[build]
+  publish = "."

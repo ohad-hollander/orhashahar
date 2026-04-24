@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>השוואת פונטים — שחרית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@300;400;700;900&family=Assistant:wght@300;400;600;700&family=Varela+Round&family=Frank+Ruhl+Libre:wght@300;400;700;900&family=Rubik:wght@300;400;500;700&family=Alef:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF3EC;
+    --cream2: #F2E8DC;
+    --purple: #7B5EA7;
+    --purple-light: #B39DD0;
+    --coral: #E8836A;
+    --text: #2D2D2D;
+    --text-soft: #6B5B52;
+  }
+
+  body {
+    background: #1a1a1a;
+    color: var(--text);
+    padding: 48px 24px;
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-bottom: 48px;
+    opacity: 0.5;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .option {
+    background: var(--cream);
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .option-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--purple);
+    color: white;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    border-radius: 50px;
+  }
+
+  .option-inner {
+    padding: 56px 48px 48px;
+  }
+
+  /* ── OPTION A: Noto Serif Hebrew — עדין ורומנטי ── */
+  .font-a { font-family: 'Noto Serif Hebrew', serif; }
+  .font-a .tag { font-family: 'Noto Serif Hebrew', serif; font-weight: 300; font-size: 11px; letter-spacing: 0.2em; color: var(--coral); text-transform: uppercase; margin-bottom: 10px; }
+  .font-a .brand { font-size: 64px; font-weight: 900; color: var(--purple); line-height: 1; margin-bottom: 6px; }
+  .font-a .sub { font-size: 18px; font-weight: 300; color: var(--coral); letter-spacing: 0.15em; margin-bottom: 20px; }
+  .font-a .body { font-size: 15px; font-weight: 300; line-height: 2; color: var(--text-soft); margin-bottom: 28px; }
+  .font-a .nav { font-size: 13px; font-weight: 400; color: var(--text-soft); display: flex; gap: 24px; margin-bottom: 28px; flex-direction: row-reverse; justify-content: flex-end; }
+  .font-a .section-title { font-size: 34px; font-weight: 700; color: var(--purple); margin-bottom: 12px; line-height: 1.2; }
+  .font-a .btn { display: inline-block; padding: 13px 32px; background: var(--purple); color: white; border-radius: 50px; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; font-family: 'Noto Serif Hebrew', serif; }
+
+  /* ── OPTION B: Rubik — מודרני ונקי ── */
+  .font-b { font-family: 'Rubik', sans-serif; }
+  .font-b .tag { font-family: 'Rubik', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.2em; color: var(--coral); text-transform: uppercase; margin-bottom: 10px; }
+  .font-b .brand { font-size: 64px; font-weight: 700; color: var(--purple); line-height: 1; margin-bottom: 6px; letter-spacing: -0.02em; }
+  .font-b .sub { font-size: 16px; font-weight: 300; color: var(--coral); letter-spacing: 0.18em; margin-bottom: 20px; }
+  .font-b .body { font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--text-soft); margin-bottom: 28px; }
+  .font-b .nav { font-size: 13px; font-weight: 400; color: var(--text-soft); display: flex; gap: 24px; margin-bottom: 28px; flex-direction: row-reverse; justify-content: flex-end; }
+  .font-b .section-title { font-size: 36px; font-weight: 700; color: var(--purple); margin-bottom: 12px; line-height: 1.15; letter-spacing: -0.01em; }
+  .font-b .btn { display: inline-block; padding: 13px 32px; background: var(--purple); color: white; border-radius: 50px; font-size: 14px; font-weight: 500; font-family: 'Rubik', sans-serif; }
+
+  /* ── OPTION C: Varela Round — חם ויצירתי ── */
+  .font-c { font-family: 'Varela Round', sans-serif; }
+  .font-c .tag { font-family: 'Varela Round', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: var(--coral); text-transform: uppercase; margin-bottom: 10px; }
+  .font-c .brand { font-size: 60px; font-weight: 400; color: var(--purple); line-height: 1.05; margin-bottom: 6px; }
+  .font-c .sub { font-size: 17px; font-weight: 400; color: var(--coral); letter-spacing: 0.12em; margin-bottom: 20px; }
+  .font-c .body { font-size: 15px; font-weight: 400; line-height: 2; color: var(--text-soft); margin-bottom: 28px; }
+  .font-c .nav { font-size: 13px; color: var(--text-soft); display: flex; gap: 24px; margin-bottom: 28px; flex-direction: row-reverse; justify-content: flex-end; }
+  .font-c .section-title { font-size: 34px; font-weight: 400; color: var(--purple); margin-bottom: 12px; line-height: 1.2; }
+  .font-c .btn { display: inline-block; padding: 13px 32px; background: var(--purple); color: white; border-radius: 50px; font-size: 14px; font-family: 'Varela Round', sans-serif; }
+
+  /* ── OPTION D: Frank Ruhl Libre — רוחני-עתיק ── */
+  .font-d { font-family: 'Frank Ruhl Libre', serif; }
+  .font-d .tag { font-family: 'Frank Ruhl Libre', serif; font-weight: 300; font-size: 11px; letter-spacing: 0.25em; color: var(--coral); text-transform: uppercase; margin-bottom: 10px; }
+  .font-d .brand { font-size: 68px; font-weight: 900; color: var(--purple); line-height: 0.95; margin-bottom: 8px; }
+  .font-d .sub { font-size: 20px; font-weight: 300; color: var(--coral); letter-spacing: 0.2em; margin-bottom: 20px; }
+  .font-d .body { font-size: 16px; font-weight: 400; line-height: 2.1; color: var(--text-soft); margin-bottom: 28px; }
+  .font-d .nav { font-size: 14px; font-weight: 400; color: var(--text-soft); display: flex; gap: 24px; margin-bottom: 28px; flex-direction: row-reverse; justify-content: flex-end; }
+  .font-d .section-title { font-size: 38px; font-weight: 700; color: var(--purple); margin-bottom: 12px; line-height: 1.15; }
+  .font-d .btn { display: inline-block; padding: 13px 32px; background: var(--purple); color: white; border-radius: 50px; font-size: 15px; font-weight: 400; letter-spacing: 0.04em; font-family: 'Frank Ruhl Libre', serif; }
+
+  .divider { width: 50px; height: 2px; background: var(--coral); border-radius: 2px; margin-bottom: 24px; }
+
+  /* Mountain mini SVG */
+  .mountain-mini { width: 60px; margin-bottom: 20px; opacity: 0.7; }
+
+  .vibe-label {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: white;
+    opacity: 0.4;
+    padding: 0 0 20px;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+<h1>בחרי פונט — שחרית</h1>
+
+<div class="grid">
+
+  <!-- A -->
+  <div class="option font-a">
+    <div class="option-label">A — עדין ורומנטי</div>
+    <div class="option-inner">
+      <svg class="mountain-mini" viewBox="0 0 120 70" fill="none"><path d="M5 65 Q25 15 45 28 Q60 36 75 5 Q88 36 115 65" stroke="#7B5EA7" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="75" cy="7" r="6" fill="none" stroke="#E8836A" stroke-width="2"/></svg>
+      <div class="tag">אור השחר</div>
+      <div class="brand">שחרית</div>
+      <div class="sub">מרחב להתפתחות וריפוי</div>
+      <div class="nav">
+        <span>עליי</span><span>שירותים</span><span>סדנאות</span><span>צרי קשר</span>
+      </div>
+      <div class="divider"></div>
+      <div class="section-title">קצת עליי</div>
+      <div class="body">
+        שמי שחר, מייסדת שחרית.<br>
+        מאמנת קינסיולוגית ואלווה רגשית, יוצרת מרחבי השתנות וחיקור.
+        אני מגיעה עם אהבה, הודיה ולב שמקשיב גם למה שאינו נאמר במילים.
+      </div>
+      <div class="btn">לקביעת פגישה</div>
+    </div>
+    <div class="vibe-label">Noto Serif Hebrew · אלגנטי ורומנטי כמו מגזין יוקרה</div>
+  </div>
+
+  <!-- B -->
+  <div class="option font-b">
+    <div class="option-label">B — מודרני ונקי</div>
+    <div class="option-inner">
+      <svg class="mountain-mini" viewBox="0 0 120 70" fill="none"><path d="M5 65 Q25 15 45 28 Q60 36 75 5 Q88 36 115 65" stroke="#7B5EA7" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="75" cy="7" r="6" fill="none" stroke="#E8836A" stroke-width="2"/></svg>
+      <div class="tag">אור השחר</div>
+      <div class="brand">שחרית</div>
+      <div class="sub">מרחב להתפתחות וריפוי</div>
+      <div class="nav">
+        <span>עליי</span><span>שירותים</span><span>סדנאות</span><span>צרי קשר</span>
+      </div>
+      <div class="divider"></div>
+      <div class="section-title">קצת עליי</div>
+      <div class="body">
+        שמי שחר, מייסדת שחרית.<br>
+        מאמנת קינסיולוגית ואלווה רגשית, יוצרת מרחבי השתנות וחיקור.
+        אני מגיעה עם אהבה, הודיה ולב שמקשיב גם למה שאינו נאמר במילים.
+      </div>
+      <div class="btn">לקביעת פגישה</div>
+    </div>
+    <div class="vibe-label">Rubik · מודרני, חד ומקצועי</div>
+  </div>
+
+  <!-- C -->
+  <div class="option font-c">
+    <div class="option-label">C — חם ויצירתי</div>
+    <div class="option-inner">
+      <svg class="mountain-mini" viewBox="0 0 120 70" fill="none"><path d="M5 65 Q25 15 45 28 Q60 36 75 5 Q88 36 115 65" stroke="#7B5EA7" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="75" cy="7" r="6" fill="none" stroke="#E8836A" stroke-width="2"/></svg>
+      <div class="tag">אור השחר</div>
+      <div class="brand">שחרית</div>
+      <div class="sub">מרחב להתפתחות וריפוי</div>
+      <div class="nav">
+        <span>עליי</span><span>שירותים</span><span>סדנאות</span><span>צרי קשר</span>
+      </div>
+      <div class="divider"></div>
+      <div class="section-title">קצת עליי</div>
+      <div class="body">
+        שמי שחר, מייסדת שחרית.<br>
+        מאמנת קינסיולוגית ואלווה רגשית, יוצרת מרחבי השתנות וחיקור.
+        אני מגיעה עם אהבה, הודיה ולב שמקשיב גם למה שאינו נאמר במילים.
+      </div>
+      <div class="btn">לקביעת פגישה</div>
+    </div>
+    <div class="vibe-label">Varela Round · עגול, חם ואנושי</div>
+  </div>
+
+  <!-- D -->
+  <div class="option font-d">
+    <div class="option-label">D — רוחני-עתיק</div>
+    <div class="option-inner">
+      <svg class="mountain-mini" viewBox="0 0 120 70" fill="none"><path d="M5 65 Q25 15 45 28 Q60 36 75 5 Q88 36 115 65" stroke="#7B5EA7" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="75" cy="7" r="6" fill="none" stroke="#E8836A" stroke-width="2"/></svg>
+      <div class="tag">אור השחר</div>
+      <div class="brand">שחרית</div>
+      <div class="sub">מרחב להתפתחות וריפוי</div>
+      <div class="nav">
+        <span>עליי</span><span>שירותים</span><span>סדנאות</span><span>צרי קשר</span>
+      </div>
+      <div class="divider"></div>
+      <div class="section-title">קצת עליי</div>
+      <div class="body">
+        שמי שחר, מייסדת שחרית.<br>
+        מאמנת קינסיולוגית ואלווה רגשית, יוצרת מרחבי השתנות וחיקור.
+        אני מגיעה עם אהבה, הודיה ולב שמקשיב גם למה שאינו נאמר במילים.
+      </div>
+      <div class="btn">לקביעת פגישה</div>
+    </div>
+    <div class="vibe-label">Frank Ruhl Libre · עמוק, עתיק ורוחני</div>
+  </div>
+
+</div>
+
+</body>
+</html>
