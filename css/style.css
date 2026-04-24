@@ -393,3 +393,55 @@ body {
   right: -24px;
   opacity: 0.22;
 }
+
+/* ── PHILOSOPHY ── */
+.philosophy {
+  background: var(--purple);
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.philosophy__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy__eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 32px;
+}
+
+.philosophy__quote {
+  font-size: clamp(20px, 2.8vw, 32px);
+  color: var(--white);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  opacity: 0.93;
+}
+
+.philosophy__quote em {
+  color: var(--coral-light);
+  font-style: normal;
+}
+
+.philosophy__author {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.12em;
+}
