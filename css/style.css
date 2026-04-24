@@ -747,6 +747,13 @@ textarea.input {
   margin-bottom: 20px;
 }
 
+.footer__tagline {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--coral);
+  margin-bottom: 28px;
+}
+
 .footer__links {
   display: flex;
   gap: 32px;
