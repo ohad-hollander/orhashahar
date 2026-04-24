@@ -24,3 +24,27 @@ if (nav && hamburger) {
     });
   });
 }
+
+// ── Contact form: show success message ──
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const firstName = contactForm.firstName.value.trim();
+    const email = contactForm.email.value.trim();
+    const message = contactForm.message.value.trim();
+
+    if (!firstName || !email || !message) {
+      [contactForm.firstName, contactForm.email, contactForm.message].forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = 'var(--coral)';
+          field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
+        }
+      });
+      return;
+    }
+
+    contactForm.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+}
